@@ -6,10 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="gamePrimary">#FDF5CA</color>
-    <color name="gameSecondary">#F6D7A7</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gamePrimary">#9A9A9A</color>
+    <color name="gameSecondary">#757575</color>
     <color name="blue">#113CFC</color>
-    <color name="primaryColor">#5C7AEA</color>
+    <color name="primaryColor">@color/white</color>
     <color name="secondaryColor">#3D56B2</color>
 </resources>
