@@ -17,11 +17,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttons[][] = new Button[BOARD_SIZE][BOARD_SIZE];
     private Button resetScoreBtn, replayGameBtn;
     private TextView p1ScoreTxt, p2ScoreTxt, turnIndicator;
-    private boolean xTurn = true;
+//    private boolean xTurn = true;
     private ImageView winnerLine;
     private int p1Score = 0, p2Score = 0, playCount = 0;
     int gameBoard[][] = {
-        {0,0,0},
+//        {0,0,0},
         {0,0,0},
         {0,0,0},
     };
@@ -87,19 +87,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 p1ScoreTxt.setText("" + p1Score);
                 replayGameBtn.setText("New Game");
                 toggleButton(false);
+                xTurn = true;
             }
         } else {
-//            turnIndicator.setText("It's X turn");
+            turnIndicator.setText("It's X turn");
             ((Button) v).setText("O");
             gameBoard[posX][posY] = 2;
+            xTurn = true;
             if(isWin(posX, posY)) {
                 turnIndicator.setText("O WON!");
                 p2Score++;
                 p2ScoreTxt.setText("" + p2Score);
                 replayGameBtn.setText("New Game");
                 toggleButton(false);
+                xTurn = false;
             }
-            xTurn = true;
         }
         if(playCount == 9) {
             turnIndicator.setText("It's a DRAW!");
@@ -172,9 +174,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 gameBoard[i][j] = 0;
             }
         }
-        turnIndicator.setText("It's X turn");
         playCount = 0;
         winnerLine.setVisibility(View.INVISIBLE);
+        if(xTurn) {
+            turnIndicator.setText("It's X turn");
+        } else {
+            turnIndicator.setText("It's O turn");
+        }
     }
 
     public void resetScore() {
@@ -183,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         p1ScoreTxt.setText("" + p1Score);
         p2ScoreTxt.setText("" + p2Score);
         turnIndicator.setText("It's X turn");
+        xTurn = true;
     }
 
     public void toggleButton(boolean isEnable) {
