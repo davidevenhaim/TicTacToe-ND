@@ -10,93 +10,87 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"
+        android:background="@color/white"
         android:orientation="vertical"
         tools:context=".MainActivity">
         >\
 
         <RelativeLayout
+            android:id="@+id/result_frame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:id="@+id/text_p1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#A7FFEB"
-                android:capitalize="sentences"
-                android:fontFamily="sans-serif-thin"
-                android:text="Player 1:"
+                android:background="@color/white"
+                android:text="Player 1"
                 android:textAllCaps="true"
                 android:textColor="#000000"
-                android:textColorHint="#000000"
                 android:textSize="30sp"
-                android:textStyle="bold|italic" />
+                />
 
             <TextView
                 android:id="@+id/text_p1_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10sp"
-                android:layout_toEndOf="@+id/text_p1"
-                android:layout_toRightOf="@+id/text_p1"
+                android:layout_below="@+id/text_p1"
+                android:layout_marginLeft="50dp"
                 android:text="0"
-                android:textColor="#18FFFF"
-                android:textSize="30sp" />
+                android:textColor="@color/black"
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/text_p2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_p1"
-                android:background="#FA9EF1"
-                android:capitalize="sentences"
-                android:fontFamily="sans-serif-thin"
-                android:text="Player 2:"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@color/white"
+                android:text="Player 2"
                 android:textAllCaps="true"
                 android:textColor="#000000"
-                android:textColorHint="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold|italic" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/text_p2_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_p1"
-                android:layout_marginLeft="10sp"
-                android:layout_toEndOf="@+id/text_p2"
-                android:layout_toRightOf="@+id/text_p2"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50dp"
+                android:layout_below="@+id/text_p2"
                 android:text="0"
-                android:textColor="#EF40FB"
+                android:textColor="@color/black"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                />
 
             <Button
                 android:id="@+id/reset_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
+                android:layout_width="130dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="40dp"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/text_p1"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/my_button"
-                android:backgroundTint="@color/blue"
-                android:text="Reset Score"
-                android:textAllCaps="true"
+                android:text="Reset"
                 android:textColor="@color/white"
-                app:backgroundTint="#40C4FF" />
+                app:backgroundTint="@color/purple_200" />
         </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/board_frame"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#000000"
+            android:layout_weight="0.8"
+            android:background="@color/white"
             android:orientation="vertical"
+            android:layout_marginLeft="10dp"
             android:overScrollMode="never"
             android:padding="0dp">
 
@@ -107,19 +101,19 @@
 
                 <Button
                     android:id="@+id/tic_00"
-                    android:layout_width="0dp"
+                    android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/gamePrimary"
+                    android:backgroundTint="@color/gameSecondary"
                     android:textColor="@color/black"
                     android:textSize="60sp" />
 
                 <Button
                     android:id="@+id/tic_01"
-                    android:layout_width="0dp"
+                    android:layout_width="10dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gameSecondary"
                     android:textColor="@color/black"
@@ -129,7 +123,7 @@
                     android:id="@+id/tic_02"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gamePrimary"
                     android:textColor="@color/black"
@@ -145,7 +139,7 @@
                     android:id="@+id/tic_10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gameSecondary"
                     android:textColor="@color/black"
@@ -155,7 +149,7 @@
                     android:id="@+id/tic_11"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gamePrimary"
                     android:textColor="@color/black"
@@ -165,7 +159,7 @@
                     android:id="@+id/tic_12"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gameSecondary"
                     android:textColor="@color/black"
@@ -181,7 +175,7 @@
                     android:id="@+id/tic_20"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gamePrimary"
                     android:textColor="@color/black"
@@ -191,7 +185,7 @@
                     android:id="@+id/tic_21"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gameSecondary"
                     android:textColor="@color/black"
@@ -201,7 +195,7 @@
                     android:id="@+id/tic_22"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/gamePrimary"
                     android:textColor="@color/black"
@@ -210,6 +204,7 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:layout_marginTop="25sp"
             android:layout_width="wrap_content"
             android:layout_height="200sp">
 
@@ -219,44 +214,40 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/black"
-                android:selectAllOnFocus="true"
-                android:shadowColor="#C84D4D"
-                android:text="it's X turn"
-                android:textAllCaps="true"
+                android:layout_marginTop="15dp"
+                android:text="It's X turn"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="#00B0FF"
-                android:textSize="24sp" />
+                android:textColor="@color/black"
+                android:textSize="30dp" />
 
             <Button
                 android:id="@+id/replay_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/turn_indicator"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/my_button"
-                android:backgroundTint="@color/blue"
-                android:text="New Game"
+                android:text="Clear"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                app:backgroundTint="#40C4FF" />
+                android:textSize="22dp"
+                app:backgroundTint="@color/black" />
         </RelativeLayout>
     </LinearLayout>
 
     <AbsoluteLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/winner_line"
-            android:layout_width="fill_parent"
-            android:layout_height="680dp"
+            android:layout_width="match_parent"
+            android:layout_height="810dp"
+            android:layout_x="0dp"
             android:layout_y="0dp"
             android:background="@color/cardview_shadow_end_color"
             android:visibility="invisible" />

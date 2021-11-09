@@ -1,6 +1,8 @@
 package com.example.tictactoe;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,20 +33,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        p1ScoreTxt = (TextView) findViewById(R.id.text_p1_score);
-        p2ScoreTxt = (TextView) findViewById(R.id.text_p2_score);
-        turnIndicator = (TextView) findViewById(R.id.turn_indicator);
+        p1ScoreTxt = findViewById(R.id.text_p1_score);
+        p2ScoreTxt = findViewById(R.id.text_p2_score);
+        turnIndicator = findViewById(R.id.turn_indicator);
 
-        resetScoreBtn = (Button) findViewById(R.id.reset_btn);
-        replayGameBtn = (Button) findViewById(R.id.replay_btn);
+        resetScoreBtn = findViewById(R.id.reset_btn);
+        replayGameBtn = findViewById(R.id.replay_btn);
 
-        winnerLine = (ImageView) findViewById(R.id.winner_line);
+        winnerLine = findViewById(R.id.winner_line);
 
         for(int i = 0; i < BOARD_SIZE; i++) {
             for(int j = 0; j < BOARD_SIZE; j++) {
                 String btnID = "tic_" + i + j;
                 int btnRef = getResources().getIdentifier(btnID, "id",getPackageName());
-                buttons[i][j] = (Button) findViewById(btnRef);
+                buttons[i][j] = findViewById(btnRef);
                 buttons[i][j].setOnClickListener(this);
             }
         }
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 toggleButton(false);
             }
         } else {
-            turnIndicator.setText("It's X turn");
+//            turnIndicator.setText("It's X turn");
             ((Button) v).setText("O");
             gameBoard[posX][posY] = 2;
             if(isWin(posX, posY)) {
@@ -109,25 +111,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int userChoice = gameBoard[row][col];
         int count = 0;
 
-        for(int i = 0; i < gameBoard[row].length; i++) {
-            if(gameBoard[row][i] == userChoice) {
+        for (int i = 0; i < gameBoard[row].length; i++) {
+            if (gameBoard[row][i] == userChoice) {
                 count++;
             }
         }
-        if(count == BOARD_SIZE) {
-            int imgRef = getResources().getIdentifier("r_" + row, "drawable",getPackageName());
+        if (count == BOARD_SIZE) {
+            int imgRef = getResources().getIdentifier("r_" + row, "drawable", getPackageName());
             winnerLine.setImageResource(imgRef);
             winnerLine.setVisibility(View.VISIBLE);
             return true;
         }
         count = 0;
-        for(int i = 0; i < gameBoard.length; i++) {
-            if(gameBoard[i][col] == userChoice) {
+        for (int i = 0; i < gameBoard.length; i++) {
+            if (gameBoard[i][col] == userChoice) {
                 count++;
             }
         }
-        if(count == BOARD_SIZE) {
-            int imgRef = getResources().getIdentifier("l_" + col, "drawable",getPackageName());
+        if (count == BOARD_SIZE) {
+            int imgRef = getResources().getIdentifier("l_" + col, "drawable", getPackageName());
             winnerLine.setImageResource(imgRef);
             winnerLine.setVisibility(View.VISIBLE);
             return true;
@@ -135,30 +137,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         count = 0;
 
         // Checking the diagonals.
-        if(Arrays.asList(canBeDiagonal).indexOf("" + row + col) > -1) {
-            for(int i = 0; i < gameBoard.length; i++) {
-                if(gameBoard[i][i] == userChoice) {
+        if (Arrays.asList(canBeDiagonal).indexOf("" + row + col) > -1) {
+            for (int i = 0; i < gameBoard.length; i++) {
+                if (gameBoard[i][i] == userChoice) {
                     count++;
                 }
             }
-            if(count == BOARD_SIZE) {
+            if (count == BOARD_SIZE) {
+
                 winnerLine.setImageResource(R.drawable.d_0);
                 winnerLine.setVisibility(View.VISIBLE);
                 return true;
             }
             count = 0;
-            for(int i = gameBoard.length - 1, j = 0; i >= 0; i--, j++) {
-                if(gameBoard[i][j] == userChoice) {
+            for (int i = gameBoard.length - 1, j = 0; i >= 0; i--, j++) {
+                if (gameBoard[i][j] == userChoice) {
                     count++;
                 }
             }
-            if(count == BOARD_SIZE) {
+            if (count == BOARD_SIZE) {
                 winnerLine.setImageResource(R.drawable.d_2);
                 winnerLine.setVisibility(View.VISIBLE);
                 return true;
             }
         }
-
         return false;
     }
 
